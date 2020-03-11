@@ -1,4 +1,4 @@
-export default Bar =[
+export default data =[
     {
       id: 299,
       name: "Almanac Beer Company",
