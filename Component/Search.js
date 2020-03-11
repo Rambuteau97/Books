@@ -1,5 +1,7 @@
 import React from 'react'
-import { StyleSheet, View, TextInput, Button, Text } from 'react-native'
+import { StyleSheet, View, TextInput, Button, Text, FlatList } from 'react-native'
+import BarItem from './BarItem'
+import Bars from '../Helpers/Data'
 
 class Search extends React.Component {
   render() {
@@ -7,6 +9,11 @@ class Search extends React.Component {
       <View style={styles.main_container}>
         <TextInput style={styles.textinput} placeholder='Nom du bar'/>
         <Button title='Rechercher' onPress={() => {}}/>
+        <FlatList
+            data={Bars}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({item}) => <BarItem Bar={item}/>}
+            />
       </View>
     )
   }
@@ -15,7 +22,7 @@ class Search extends React.Component {
 const styles = StyleSheet.create({
   main_container: {
     flex: 1,
-    marginTop: 20
+    marginTop: 25
   },
   textinput: {
     marginLeft: 5,
