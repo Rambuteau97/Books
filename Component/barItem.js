@@ -23,7 +23,6 @@ class BarItem extends React.Component {
           <Text style={styles.title_text}>{Bar.country}</Text>     
         </View>
       </View>
-
     )
   }
 }
