@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, TextInput, Button, Text, FlatList } from 'react-native'
 import BarItem from './BarItem'
-import DataBar from '../Helpers/Data'
+
 import {getBarsFromApiWithSearchedText} from '../API/APIBAR'
 
 
@@ -11,25 +11,35 @@ class Search extends React.Component {
   
   constructor(props){
     super(props)
-    this._bars =[]
-    
+    this.searchText = ''
+    this.state = {
+      _bars : [],
+    }
   }
 
 
   _loadBars() {
-    getBarsFromApiWithSearchedText("breweries").then(data => {
-      this._bars=data
-      this.forceUpdate()
-    })
+    getBarsFromApiWithSearchedText(this.searchText).then(data => {
+      this.setState({_bars : data})
+      })
   }
  
+  _GetSearchText(text){
+    this.searchText = text
+  }
+
+
   render() {
     return (
       <View style={styles.main_container}>
-        <TextInput style={styles.textinput} placeholder='Nom du bar'/>
+        <TextInput 
+          style={styles.textinput} 
+          placeholder='Dans quelle ville cherches-tu?'
+          onChangeText={(text) => this._GetSearchText(text)}
+          />
         <Button title='Rechercher' onPress={() => this._loadBars()}/>
         <FlatList
-            data={this._bars}
+            data={this.state._bars}
             keyExtractor={(item) => item.id.toString()}
             renderItem={({item}) => <BarItem Bars={item}/>}
             />
