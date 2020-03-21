@@ -9,18 +9,17 @@ class BarItem extends React.Component {
       <View style={styles.main_container}>
         <View style={styles.Bar_info}>
           <View style={styles.Bar_name}>
-            <Text style={styles.description_nom_Bar}>{Bar.name}</Text>
+            <Text style={styles.description_nom_Bar} numberOfLines={1}>{Bar.name}</Text>
           </View>
           <View style={styles.Bar_infopratique}>
             <Text style={styles.description_text}>Type of bar: {Bar.brewery_type}</Text>
             <Text style={styles.description_text}>Phone: {Bar.phone}</Text>
-            <Text style={styles.description_text}>Site: {Bar.website_url}</Text>
           </View>
         </View>
         <View style={styles.adress_container} >
-          <Text style={styles.title_text}>{Bar.street}</Text>
-          <Text style={styles.title_text}>{Bar.city}, {Bar.state}</Text>
-          <Text style={styles.title_text}>{Bar.country}</Text>     
+          <Text style={styles.title_text}>{Bar.city}</Text>
+          <Text style={styles.title_text}>{Bar.state}</Text>
+          <Text style={styles.text_country}>{Bar.country}</Text>     
         </View>
       </View>
     )
@@ -34,26 +33,35 @@ const styles = StyleSheet.create({
     flexDirection:"row",
   },
   Bar_info:{
-    flexDirection:"column"
+    flexDirection:"column",
+    flex:3,
+    backgroundColor: 'lightgoldenrodyellow',
+    margin: 5
   },
   Bar_name:{
-    flex:1
+    flex:1,
+    flexWrap: 'wrap'
   },
   Bar_infopratique:{
     flex:2
   },
   title_text: {
   },
+  text_country: {
+    fontWeight: 'bold'
+  },
   description_nom_Bar:{
     fontSize:19,
     fontWeight:'bold',
     flexWrap: 'wrap',
+    paddingRight: 5
+    
   },
   adress_container:{
     flex:1,
     flexDirection:"column",
     alignItems:"center",
-    backgroundColor: 'gray',
+    backgroundColor: 'wheat',
     margin: 5,
     justifyContent:"center",
   },
