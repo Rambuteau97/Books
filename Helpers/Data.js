@@ -1,4 +1,4 @@
-export default data =[
+export default databar =[
     {
       id: 299,
       name: "Almanac Beer Company",
