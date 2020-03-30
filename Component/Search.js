@@ -37,7 +37,7 @@ class Search extends React.Component {
           placeholder='Dans quelle ville cherches-tu?'
           onChangeText={(text) => this._GetSearchText(text)}
           />
-        <Button title='Rechercher' onPress={() => this._loadBars()}/>
+        <Button title='Rechercher' onPress={() => this._loadBars()} color="#ff8c00" />
         <FlatList
             data={this.state._bars}
             keyExtractor={(item) => item.id.toString()}
@@ -51,7 +51,7 @@ class Search extends React.Component {
 const styles = StyleSheet.create({
   main_container: {
     flex: 1,
-    marginTop: 25,
+    marginTop: 50
   },
   textinput: {
     marginLeft: 5,
