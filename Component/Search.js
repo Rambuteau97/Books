@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, TextInput, Button, Text, FlatList } from 'react-native'
-import BarItem from './BarItem'
+import BarListItem from './BarListItem'
 
 import {getBarsFromApiWithSearchedText} from '../API/APIBAR'
 
@@ -37,7 +37,7 @@ class Search extends React.Component {
           placeholder='Dans quelle ville cherches-tu un bar?'
           onChangeText={(text) => this._GetSearchText(text)}
           />
-        <Button title='Rechercher' onPress={() => this._loadBars()} color="#ff8c00" />
+        <Button title='Recherche' onPress={() => this._loadBars()} color="#ff8c00" />
         <FlatList
             data={this.state._bars}
             keyExtractor={(item) => item.id.toString()}
@@ -51,7 +51,7 @@ class Search extends React.Component {
 const styles = StyleSheet.create({
   main_container: {
     flex: 1,
-    marginTop: 50
+    marginTop: 20
   },
   textinput: {
     marginLeft: 5,

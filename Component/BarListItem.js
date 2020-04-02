@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 
 
-class BarItem extends React.Component {
+class BarListItem extends React.Component {
   render() {
     const Bar=this.props.Bars
     return (
@@ -75,4 +75,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default BarItem
+export default BarListItem
