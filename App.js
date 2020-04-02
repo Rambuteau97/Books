@@ -13,8 +13,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={Search} />
-        <Tab.Screen name="Settings" component={Map} />
+        <Tab.Screen name="Recherche" component={Search} />
+        <Tab.Screen name="Map" component={Map} />
       </Tab.Navigator>
     </NavigationContainer>
   );
