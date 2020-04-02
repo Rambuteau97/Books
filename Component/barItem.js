@@ -12,8 +12,8 @@ class BarItem extends React.Component {
             <Text style={styles.description_nom_Bar} numberOfLines={1}>{Bar.name}</Text>
           </View>
           <View style={styles.Bar_infopratique}>
-            <Text style={styles.description_text}>Type of bar: {Bar.brewery_type}</Text>
-            <Text style={styles.description_text}>Phone: {Bar.phone}</Text>
+            <Text style={styles.description_text}>Type de bar: {Bar.brewery_type}</Text>
+            <Text style={styles.description_text}>Téléphone: {Bar.phone}</Text>
           </View>
         </View>
         <View style={styles.adress_container} >

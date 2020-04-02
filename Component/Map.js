@@ -7,25 +7,26 @@ class Search extends React.Component {
   
   render() {
     return (
+ 
       <View style={styles.main_container}>
           <MapView style={styles.map}
-          region={{
-              latitude: 59.3293234999999,
-              longitude:18.0685808000000063,
-              latitudeDelta:0.1,
-              longitudeDelta:0.1
-           }}>
-
-        <MapView.Marker
-            coordinate={{
+            region={{
                 latitude: 59.3293234999999,
-                longitude:18.0685808000000063}}
-            title={'title'}
-            description={'description'}
-        />
-        </MapView>
+                longitude:18.0685808000000063,
+                latitudeDelta:0.1,
+                longitudeDelta:0.1
+            }}>
+
+            <MapView.Marker
+                coordinate={{
+                    latitude: 59.3293234999999,
+                    longitude:18.0685808000000063}}
+                title={'title'}
+                description={'description'}
+            />
+          </MapView>
       </View>
-    );
+    )
   }
 }
 
@@ -37,7 +38,8 @@ const styles = StyleSheet.create({
       bottom:0,
       right:0,
       justifyContent:'flex-end',
-      alignItems:'center'
+      alignItems:'center',
+      flex:1
   },
   map:{
     position:'absolute',
@@ -45,6 +47,14 @@ const styles = StyleSheet.create({
     left:0,
     bottom:0,
     right:0
+  },
+  textinput: {
+    marginLeft: 5,
+    marginRight: 5,
+    height: 50,
+    borderColor: '#000000',
+    borderWidth: 1,
+    paddingLeft: 5
   }
 })
 

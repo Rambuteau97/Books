@@ -34,7 +34,7 @@ class Search extends React.Component {
       <View style={styles.main_container}>
         <TextInput 
           style={styles.textinput} 
-          placeholder='Dans quelle ville cherches-tu?'
+          placeholder='Dans quelle ville cherches-tu un bar?'
           onChangeText={(text) => this._GetSearchText(text)}
           />
         <Button title='Rechercher' onPress={() => this._loadBars()} color="#ff8c00" />
