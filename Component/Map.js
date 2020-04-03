@@ -2,13 +2,26 @@ import React from 'react'
 import { StyleSheet, View,TextInput, Button } from 'react-native'
 import MapView from 'react-native-maps'
 import {bars} from '../Helpers/Data'
+import {getBarsFromApiWithSearchedTextName} from '../API/APIBAR'
 
 class Search extends React.Component {
 
   constructor(props){
     super(props)
-    this.LATITUDE = 37.7834497667258
-    this.LONGITUDE = -122.306283180899;
+      this.searchText = '',
+    this.state = { 
+      _bars : [],
+    }
+  }
+
+  _loadBars() {
+    getBarsFromApiWithSearchedTextName(this.searchText)
+    .then(data => {this.setState({_bars : data})})
+    .then(() => console.log(this.state._bars[0].latitude))
+  }
+
+  _GetSearchText(text){
+    this.searchText = text
   }
 
   render() {
@@ -17,25 +30,24 @@ class Search extends React.Component {
         <View style={styles.main_container}>
             <TextInput 
               style={styles.textinput}
-              placeholder='Tape ici le nom d un bar! '
-              onChangeText={(text) => {}}
+              placeholder='Tape ici le nom d un bar!'
+              onChangeText={(text) => this._GetSearchText(text)}
             />  
-            <Button title='Recherche' onPress={() =>  {}} color="#ff8c00" />
+            <Button title='Recherche' onPress={() => this._loadBars()} color="#ff8c00" />
         </View> 
         <View style={styles.main_container_map}> 
             <MapView style={styles.map}
-              data={bars}
               region={{
-                  latitude: this.LATITUDE,
-                  longitude:this.LONGITUDE,
+                  latitude:37.7834497667258,
+                  longitude:-122.306283180899,
                   latitudeDelta:0.1,
                   longitudeDelta:0.1
               }}>
 
               <MapView.Marker
                   coordinate={{
-                      latitude: this.LATITUDE,
-                      longitude: this.LONGITUDE}}
+                      latitude: 37.7834497667258,
+                      longitude: -122.306283180899}}
                   title={'title'}
                   description={'description'}
               />

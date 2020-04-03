@@ -20,8 +20,8 @@ class Search extends React.Component {
 
   _loadBars() {
     getBarsFromApiWithSearchedText(this.searchText).then(data => {
-      this.setState({_bars : data})
-      })
+      this.setState({_bars : data})})
+      
   }
  
   _GetSearchText(text){
@@ -41,7 +41,7 @@ class Search extends React.Component {
         <FlatList
             data={this.state._bars}
             keyExtractor={(item) => item.id.toString()}
-            renderItem={({item}) => <BarItem Bars={item}/>}
+            renderItem={({item}) => <BarListItem Bars={item}/>}
             />
       </View>
     )
