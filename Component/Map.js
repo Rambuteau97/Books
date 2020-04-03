@@ -1,34 +1,41 @@
 import React from 'react'
 import { StyleSheet, View,TextInput, Button } from 'react-native'
 import MapView from 'react-native-maps'
-
+import {bars} from '../Helpers/Data'
 
 class Search extends React.Component {
-  
+
+  constructor(props){
+    super(props)
+    this.LATITUDE = 37.7834497667258
+    this.LONGITUDE = -122.306283180899;
+  }
+
   render() {
     return (
       <View style={styles.main_container_gene}>
         <View style={styles.main_container}>
             <TextInput 
               style={styles.textinput}
-              placeholder='Dans quelle ville cherches-tu un bar?'
-              onChangeText={() => {}}
+              placeholder='Tape ici le nom d un bar! '
+              onChangeText={(text) => {}}
             />  
-            <Button title='Recherche' onPress={() => {}} color="#ff8c00" />
-        </View>   
+            <Button title='Recherche' onPress={() =>  {}} color="#ff8c00" />
+        </View> 
         <View style={styles.main_container_map}> 
             <MapView style={styles.map}
+              data={bars}
               region={{
-                  latitude: 59.3293234999999,
-                  longitude:18.0685808000000063,
+                  latitude: this.LATITUDE,
+                  longitude:this.LONGITUDE,
                   latitudeDelta:0.1,
                   longitudeDelta:0.1
               }}>
 
               <MapView.Marker
                   coordinate={{
-                      latitude: 59.3293234999999,
-                      longitude:18.0685808000000063}}
+                      latitude: this.LATITUDE,
+                      longitude: this.LONGITUDE}}
                   title={'title'}
                   description={'description'}
               />
