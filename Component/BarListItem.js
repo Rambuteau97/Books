@@ -1,78 +1,76 @@
-import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
-
+import React from 'react';
+import { StyleSheet, View, Text } from 'react-native';
 
 class BarListItem extends React.Component {
   render() {
-    const Bar=this.props.Bars
+    const Bar = this.props.Bars;
     return (
       <View style={styles.main_container}>
         <View style={styles.Bar_info}>
           <View style={styles.Bar_name}>
-            <Text style={styles.description_nom_Bar} numberOfLines={1}>{Bar.name}</Text>
+            <Text style={styles.description_nom_Bar} numberOfLines={1}>
+              {Bar.name}
+            </Text>
           </View>
           <View style={styles.Bar_infopratique}>
             <Text style={styles.description_text}>Type de bar: {Bar.brewery_type}</Text>
             <Text style={styles.description_text}>Téléphone: {Bar.phone}</Text>
           </View>
         </View>
-        <View style={styles.adress_container} >
+        <View style={styles.adress_container}>
           <Text style={styles.title_text}>{Bar.city}</Text>
           <Text style={styles.title_text}>{Bar.state}</Text>
-          <Text style={styles.text_country}>{Bar.country}</Text>     
+          <Text style={styles.text_country}>{Bar.country}</Text>
         </View>
       </View>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   main_container: {
     height: 80,
-    flex:1,
-    flexDirection:"row",
+    flex: 1,
+    flexDirection: 'row',
   },
-  Bar_info:{
-    flexDirection:"column",
-    flex:3,
+  Bar_info: {
+    flexDirection: 'column',
+    flex: 3,
     backgroundColor: 'lightgoldenrodyellow',
-    margin: 5
+    margin: 5,
   },
-  Bar_name:{
-    flex:1,
-    flexWrap: 'wrap'
-  },
-  Bar_infopratique:{
-    flex:2
-  },
-  title_text: {
-  },
-  text_country: {
-    fontWeight: 'bold'
-  },
-  description_nom_Bar:{
-    fontSize:19,
-    fontWeight:'bold',
+  Bar_name: {
+    flex: 1,
     flexWrap: 'wrap',
-    paddingRight: 5
-    
   },
-  adress_container:{
-    flex:1,
-    flexDirection:"column",
-    alignItems:"center",
+  Bar_infopratique: {
+    flex: 2,
+  },
+  title_text: {},
+  text_country: {
+    fontWeight: 'bold',
+  },
+  description_nom_Bar: {
+    fontSize: 19,
+    fontWeight: 'bold',
+    flexWrap: 'wrap',
+    paddingRight: 5,
+  },
+  adress_container: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
     backgroundColor: 'wheat',
     margin: 5,
-    justifyContent:"center",
+    justifyContent: 'center',
   },
-  web_url_container:{
-    textAlign:"right",
-    
+  web_url_container: {
+    textAlign: 'right',
   },
   description_text: {
     fontStyle: 'italic',
-    color: '#666666'
+    color: '#666666',
   },
-})
+});
 
-export default BarListItem
+export default BarListItem;
