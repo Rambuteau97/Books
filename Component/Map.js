@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, TextInput, Button } from 'react-native';
 import MapView from 'react-native-maps';
-import { Marker } from 'react-native-maps';
 import { bars } from '../Helpers/Data';
 import { getBarsFromApiWithSearchedTextName } from '../API/APIBAR';
 
@@ -19,7 +18,7 @@ class Search extends React.Component {
       .then((data) => {
         this.setState({ _bars: data });
       })
-      .then(() => console.warn(this.state._bars[0].latitude));
+      .then(() => console.warn(this.state._bars.latitude));
   }
 
   _GetSearchText(text) {
@@ -39,17 +38,20 @@ class Search extends React.Component {
         </View>
         <View style={styles.main_container_map}>
           <MapView style={styles.map}>
-            {this.state._bars.map((_bars, index) => (
-              <Marker
-                coordinate={{
-                  latitude: Number(_bars.latitude),
-                  longitude: Number(_bars.longitude),
-                }}
-                key={index}
-                title={`${index}`}
-                description={`description${index}`}
-              />
-            ))}
+            {this.state._bars.map((_bars, index) => {
+              if (_bars.latitude && _bars.longitude)
+                return (
+                  <MapView.Marker
+                    coordinate={{
+                      latitude: Number(_bars.latitude),
+                      longitude: Number(_bars.longitude),
+                    }}
+                    key={index}
+                    title={`${_bars.name}`}
+                    description={`${_bars.city}`}
+                  />
+                );
+            })}
           </MapView>
         </View>
       </View>
