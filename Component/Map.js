@@ -14,11 +14,9 @@ class Search extends React.Component {
   }
 
   _loadBars() {
-    getBarsFromApiWithSearchedTextName(this.searchText)
-      .then((data) => {
-        this.setState({ _bars: data });
-      })
-      .then(() => console.warn(this.state._bars.latitude));
+    getBarsFromApiWithSearchedTextName(this.searchText).then((data) => {
+      this.setState({ _bars: data });
+    });
   }
 
   _GetSearchText(text) {
@@ -37,11 +35,20 @@ class Search extends React.Component {
           <Button title="Recherche" onPress={() => this._loadBars()} color="#ff8c00" />
         </View>
         <View style={styles.main_container_map}>
-          <MapView style={styles.map}>
+          <MapView
+            style={styles.map}
+            initialRegion={{
+              latitude: 37.7834497667258,
+              longitude: -122.306283180899,
+              latitudeDelta: 13.922,
+              longitudeDelta: 13.0421,
+            }}
+          >
             {this.state._bars.map((_bars, index) => {
               if (_bars.latitude && _bars.longitude)
                 return (
                   <MapView.Marker
+                    position={center}
                     coordinate={{
                       latitude: Number(_bars.latitude),
                       longitude: Number(_bars.longitude),

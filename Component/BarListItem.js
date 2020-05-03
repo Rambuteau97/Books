@@ -2,6 +2,11 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
 class BarListItem extends React.Component {
+  _toggleFavorite() {
+    const action = { type: 'TOGGLE_FAVORITE', value: this.props.Bar }; //changer state en props
+    this.props.dispatch(action);
+  }
+
   render() {
     const Bar = this.props.Bars;
     return (
@@ -14,6 +19,10 @@ class BarListItem extends React.Component {
           </View>
           <View style={styles.Bar_infopratique}>
             <Text style={styles.description_text}>Type de bar: {Bar.brewery_type}</Text>
+            <TouchableOpacity
+              style={styles.favorite_container}
+              onPress={() => this._toggleFavorite()}
+            ></TouchableOpacity>
             <Text style={styles.description_text}>Téléphone: {Bar.phone}</Text>
           </View>
         </View>
@@ -38,6 +47,9 @@ const styles = StyleSheet.create({
     flex: 3,
     backgroundColor: 'lightgoldenrodyellow',
     margin: 5,
+  },
+  favorite_container: {
+    alignItems: 'center',
   },
   Bar_name: {
     flex: 1,
