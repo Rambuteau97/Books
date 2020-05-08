@@ -1,10 +1,19 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
+import { connect } from 'react-redux';
 
 class BarListItem extends React.Component {
   _toggleFavorite() {
     const action = { type: 'TOGGLE_FAVORITE', value: this.props.Bar }; //changer state en props
     this.props.dispatch(action);
+  }
+
+  _displayFavoriteImage() {
+    var sourceImage = require('../Images/ic_favorite_border.png');
+    if (this.props.favoritesBar.findIndex((item) => item.id === this.state.Bar.id) !== -1) {
+      sourceImage = require('../Images/ic_favorite.png');
+    }
+    return <Image style={styles.favorite_image} source={sourceImage} />;
   }
 
   render() {
@@ -22,7 +31,9 @@ class BarListItem extends React.Component {
             <TouchableOpacity
               style={styles.favorite_container}
               onPress={() => this._toggleFavorite()}
-            ></TouchableOpacity>
+            >
+              {this._displayFavoriteImage()}
+            </TouchableOpacity>
             <Text style={styles.description_text}>Téléphone: {Bar.phone}</Text>
           </View>
         </View>
@@ -83,6 +94,15 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     color: '#666666',
   },
+  favorite_image: {
+    width: 40,
+    height: 40,
+  },
 });
 
-export default BarListItem;
+const mapStateToProps = (state) => {
+  return {
+    favoritesBar: state.favoritesBar,
+  };
+};
+export default connect(mapStateToProps)(BarListItem);
