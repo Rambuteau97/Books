@@ -22,18 +22,19 @@ class BarListItem extends React.Component {
       <View style={styles.main_container}>
         <View style={styles.Bar_info}>
           <View style={styles.Bar_name}>
-            <Text style={styles.description_nom_Bar} numberOfLines={1}>
-              {Bar.name}
-            </Text>
-          </View>
-          <View style={styles.Bar_infopratique}>
-            <Text style={styles.description_text}>Type de bar: {Bar.brewery_type}</Text>
             <TouchableOpacity
               style={styles.favorite_container}
               onPress={() => this._toggleFavorite()}
             >
               {this._displayFavoriteImage()}
             </TouchableOpacity>
+            <Text style={styles.description_nom_Bar} numberOfLines={1}>
+              {Bar.name}
+            </Text>
+          </View>
+          <View style={styles.Bar_infopratique}>
+            <Text style={styles.description_text}>Type de bar: {Bar.brewery_type}</Text>
+
             <Text style={styles.description_text}>Téléphone: {Bar.phone}</Text>
           </View>
         </View>
@@ -95,8 +96,8 @@ const styles = StyleSheet.create({
     color: '#666666',
   },
   favorite_image: {
-    width: 40,
-    height: 40,
+    width: 25,
+    height: 25,
   },
 });
 
