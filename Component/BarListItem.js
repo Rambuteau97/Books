@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 class BarListItem extends React.Component {
   _toggleFavorite() {
-    const action = { type: 'TOGGLE_FAVORITE', value: this.props.Bar }; //changer state en props
+    const action = { type: 'TOGGLE_FAVORITE', value: this.props.Bar }; 
     this.props.dispatch(action);
   }
 
@@ -34,7 +34,6 @@ class BarListItem extends React.Component {
           </View>
           <View style={styles.Bar_infopratique}>
             <Text style={styles.description_text}>Type de bar: {Bar.brewery_type}</Text>
-
             <Text style={styles.description_text}>Téléphone: {Bar.phone}</Text>
           </View>
         </View>
@@ -101,9 +100,17 @@ const styles = StyleSheet.create({
   },
 });
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatch: (action) => {
+      dispatch(action);
+    },
+  };
+};
+
 const mapStateToProps = (state) => {
   return {
     favoritesBar: state.favoritesBar,
   };
 };
-export default connect(mapStateToProps)(BarListItem);
+export default connect(mapStateToProps, mapDispatchToProps)(BarListItem);

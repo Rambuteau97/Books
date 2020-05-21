@@ -48,7 +48,6 @@ class Search extends React.Component {
               if (_bars.latitude && _bars.longitude)
                 return (
                   <MapView.Marker
-                    position={center}
                     coordinate={{
                       latitude: Number(_bars.latitude),
                       longitude: Number(_bars.longitude),

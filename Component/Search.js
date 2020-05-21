@@ -6,6 +6,7 @@ import { getBarsFromApiWithSearchedText } from '../API/APIBAR';
 class Search extends React.Component {
   constructor(props) {
     super(props);
+
     this.searchText = '';
     this.state = {
       _bars: [],
