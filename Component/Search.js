@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, TextInput, Button, Text, FlatList } from 'react-native';
+import { StyleSheet, View, TextInput, Button, Text, FlatList, Image } from 'react-native';
 import BarListItem from './BarListItem';
 import { getBarsFromApiWithSearchedText } from '../API/APIBAR';
 
@@ -32,6 +32,7 @@ class Search extends React.Component {
           onChangeText={(text) => this._GetSearchText(text)}
         />
         <Button title="Recherche" onPress={() => this._loadBars()} color="#ff8c00" />
+        <Image style={styles.image} source={require('../Images/bière.png')} />
         <FlatList
           data={this.state._bars}
           keyExtractor={(item) => item.id.toString()}
@@ -54,6 +55,10 @@ const styles = StyleSheet.create({
     borderColor: '#000000',
     borderWidth: 1,
     paddingLeft: 5,
+  },
+  image: {
+    flex: 1,
+    marginTop: 200,
   },
 });
 

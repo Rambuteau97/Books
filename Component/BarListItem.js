@@ -4,13 +4,17 @@ import { connect } from 'react-redux';
 
 class BarListItem extends React.Component {
   _toggleFavorite() {
-    const action = { type: 'TOGGLE_FAVORITE', value: this.props.Bar }; 
+    const action = { type: 'TOGGLE_FAVORITE', value: this.props.Bar };
     this.props.dispatch(action);
+  }
+
+  componentDidUpdate() {
+    console.log(this.props.favoritesBar);
   }
 
   _displayFavoriteImage() {
     var sourceImage = require('../Images/ic_favorite_border.png');
-    if (this.props.favoritesBar.findIndex((item) => item.id === this.state.Bar.id) !== -1) {
+    if (this.props.favoritesBar.findIndex((item) => item.id === this.state.Bar[0].id) !== -1) {
       sourceImage = require('../Images/ic_favorite.png');
     }
     return <Image style={styles.favorite_image} source={sourceImage} />;
