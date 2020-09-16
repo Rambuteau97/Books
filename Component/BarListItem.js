@@ -14,7 +14,7 @@ class BarListItem extends React.Component {
 
   _displayFavoriteImage() {
     var sourceImage = require('../Images/ic_favorite_border.png');
-    if (this.props.favoritesBar.findIndex((item) => item.id === this.state.Bar[0].id) !== -1) {
+    if (this.props.favoritesBar.findIndex((item) => item.id === this.props.Bar.id) !== -1) {
       sourceImage = require('../Images/ic_favorite.png');
     }
     return <Image style={styles.favorite_image} source={sourceImage} />;
