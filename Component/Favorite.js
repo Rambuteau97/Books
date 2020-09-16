@@ -19,7 +19,7 @@ class Favorite extends React.Component {
           <BarListItem
             Bar={item}
             isBarFavorite={
-              this.props.favoritesBar.findIndex((Bar) => Bar.id === item.id) !== -1 ? true : false
+              this.props.favoritesBars.findIndex((Bar) => Bar.id === item.id) !== -1 ? true : false
             }
           />
         )}
@@ -36,7 +36,7 @@ class Favorite extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    favoritesBar: state.favoritesBar,
+    favoritesBars: state.favoritesBars,
   };
 };
 

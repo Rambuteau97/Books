@@ -9,12 +9,12 @@ class BarListItem extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.favoritesBar);
+    console.log(this.props.favoritesBars);
   }
 
   _displayFavoriteImage() {
     var sourceImage = require('../Images/ic_favorite_border.png');
-    if (this.props.favoritesBar.findIndex((item) => item.id === this.props.Bar.id) !== -1) {
+    if (this.props.favoritesBars.findIndex((item) => item.id === this.props.Bar.id) !== -1) {
       sourceImage = require('../Images/ic_favorite.png');
     }
     return <Image style={styles.favorite_image} source={sourceImage} />;
@@ -114,7 +114,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    favoritesBar: state.favoritesBar,
+    favoritesBars: state.favoritesBars,
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(BarListItem);

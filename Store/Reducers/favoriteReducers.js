@@ -1,21 +1,21 @@
-const initialState = { favoritesBar: [] };
+const initialState = { favoritesBars: [] };
 
 function toggleFavorite(state = initialState, action) {
   let nextState;
   switch (action.type) {
     case 'TOGGLE_FAVORITE':
-      const favoriteBarIndex = state.favoritesBar.findIndex((item) => item.id === action.value.id);
+      const favoriteBarIndex = state.favoritesBars.findIndex((item) => item.id === action.value.id);
       if (favoriteBarIndex !== -1) {
         //suppression du bar
         nextState = {
           ...state,
-          favoritesBar: state.favoritesBar.filter((item, index) => index !== favoriteBarIndex),
+          favoritesBars: state.favoritesBars.filter((item, index) => index !== favoriteBarIndex),
         };
       } else {
         //ajoute le bar
         nextState = {
           ...state,
-          favoritesBar: [...state.favoritesBar, action.value],
+          favoritesBars: [...state.favoritesBars, action.value],
         };
       }
       return nextState || state;
