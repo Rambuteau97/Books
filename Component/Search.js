@@ -36,7 +36,7 @@ class Search extends React.Component {
         <FlatList
           data={this.state._bars}
           keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => <BarListItem Bars={item} />}
+          renderItem={({ item }) => <BarListItem Bar={item} />}
         />
       </View>
     );

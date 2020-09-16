@@ -21,7 +21,7 @@ class BarListItem extends React.Component {
   }
 
   render() {
-    const Bar = this.props.Bars;
+    const Bar = this.props.Bar;
     return (
       <View style={styles.main_container}>
         <View style={styles.Bar_info}>
