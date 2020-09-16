@@ -6,11 +6,13 @@ function toggleFavorite(state = initialState, action) {
     case 'TOGGLE_FAVORITE':
       const favoriteBarIndex = state.favoritesBar.findIndex((item) => item.id === action.value.id);
       if (favoriteBarIndex !== -1) {
+        //suppression du bar
         nextState = {
           ...state,
           favoritesBar: state.favoritesBar.filter((item, index) => index !== favoriteBarIndex),
         };
       } else {
+        //ajoute le bar
         nextState = {
           ...state,
           favoritesBar: [...state.favoritesBar, action.value],
