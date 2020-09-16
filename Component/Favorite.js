@@ -12,7 +12,7 @@ class Favorite extends React.Component {
     return (
       <FlatList
         style={styles.list}
-        data={this.props.favoritesFilm}
+        data={this.props.favoritesBars}
         keyExtractor={(item) => item.id.toString()}
         favoriteList={true}
         renderItem={({ item }) => (
