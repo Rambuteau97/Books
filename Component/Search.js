@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    marginTop: 200,
+    width: 380,
+    height: 30,
   },
 });
 
