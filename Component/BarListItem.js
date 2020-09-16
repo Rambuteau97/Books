@@ -8,7 +8,7 @@ class BarListItem extends React.Component {
     this.props.dispatch(action);
   }
 
-  componentDidUpdate() {
+  componentDidMount() {
     console.log(this.props.favoritesBar);
   }
 
